@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { User, SuperUser } from '../models/user.types'
 import { isAdmin, isModerator, isRegularUser } from "../guards/user.guards";
 
-Injectable({
+@Injectable({
     providedIn: 'root'
 })
 export class UserService {
@@ -12,14 +12,14 @@ export class UserService {
             console.log(`Admin "${user.name}" is doing..`);
             task();
         }   else {
-            console.error(`mistake "${user.name }" is not a admin!`);
+            console.error(`mistake "${user.name}" is not a admin!`);
         }
     }
 
     moderateContent(user : User, contentId: string): void {
         if (isModerator(user)) {
-            console.log(`Moderator "${user.name}" moderate content ID: ${contentId}`);
-            user.banUser(user);
+            console.log(`Moderator "{user.name}" Moderator content ID: ${contentId}`);
+            console.log(`Content "${contentId}" is banned!`);
         } else {
             console.error(`wrong: "${user.name}" is not a Moderator`);
         }
@@ -30,7 +30,7 @@ export class UserService {
             console.log(`"${user.name}" watching..`);
             user.viewContent();
         } else {
-            console.error(`mistake: "${user.name}" is not a regualr user!`);
+            console.error(`mistake: "${user.name}" is not a regular user!`);
         }
     }  
 
@@ -39,7 +39,3 @@ export class UserService {
         task();
     }
 }
-
-
-
-

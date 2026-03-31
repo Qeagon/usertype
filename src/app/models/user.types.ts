@@ -17,6 +17,6 @@ export interface RegularUser {
     viewContent(): void;
 }
 
-export type User =Admin | Moderator | RegularUser;
+export type User = Admin | Moderator | RegularUser;
 
 export type SuperUser = Admin & Moderator;

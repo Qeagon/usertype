@@ -1,7 +1,7 @@
 import { Admin, Moderator, RegularUser, User } from '../models/user.types';
 
 export function isAdmin(user : User): user is Admin {
-    return (user as Admin).createUser !==undefined;
+    return (user as Admin).createUser !== undefined;
 }
 
 export function isModerator(user: User): user is Moderator {
